@@ -102,19 +102,24 @@ form {
   color: white;
 }
 
-.movie_card > img {
+.movie_card > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.movie_card > a > img {
   width: 100%;
   border-radius: 10px;
   height: inherit;
   object-fit: cover;
 }
 
-.movie_card > div > h3 {
+.movie_card > a >div > h3 {
   padding-bottom: 10px;
   font-size: 30px;
 }
 
-.movie_card > div > p {
+.movie_card > a >div > p {
   padding-bottom: 20px;
 }
 
