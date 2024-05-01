@@ -1,39 +1,33 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // 초기 리뷰 로드
-  loadReviews();
+export function initializeEventHandlers() {
+  document.addEventListener('DOMContentLoaded', function() {
+    loadReviews();
 
-  // 리뷰 작성 버튼 이벤트 처리
-  document.querySelector('.inputReview button').addEventListener('click', function(event) {
-    event.preventDefault(); // 폼 기본 제출 방지
+    document.getElementById('reviewForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('authorInput').value;
+      const review = document.getElementById('reviewInput').value;
+      const newReview = { name: name, review: review };
+      addReview(newReview);
+      document.getElementById('authorInput').value = '';
+      document.getElementById('reviewInput').value = '';
+    });
 
-    // 입력 필드에서 닉네임과 리뷰 가져오기
-    const name = document.querySelector('.inputReview input').value;
-    const review = document.querySelector('.inputReview textarea').value;
-
-    // 새로운 리뷰 생성
-    const newReview = { name: name, review: review };
-    addReview(newReview);
-
-    // 입력 필드 초기화
-    document.querySelector('.inputReview input').value = '';
-    document.querySelector('.inputReview textarea').value = '';
-  });
-
-  // 리뷰 수정 및 삭제 버튼 이벤트 처리
-  document.querySelectorAll('.review button').forEach((btn, index) => {
-    btn.addEventListener('click', function() {
-      const review = this.parentElement;
-      if (this.textContent === '수정') {
-        editReview(review, index);
-      } else if (this.textContent === '삭제') {
-        deleteReview(review, index);
+    document.getElementById('reviewWrap').addEventListener('click', function(event) {
+      if (event.target.classList.contains('editBtn')) {
+        const reviewDiv = event.target.parentElement;
+        const index = Array.from(reviewDiv.parentElement.children).indexOf(reviewDiv);
+        editReview(reviewDiv, index);
+      } else if (event.target.classList.contains('deleteBtn')) {
+        const reviewDiv = event.target.parentElement;
+        const index = Array.from(reviewDiv.parentElement.children).indexOf(reviewDiv);
+        deleteReview(reviewDiv, index);
       }
     });
   });
-});
+}
 
 // 초기 리뷰 로드
-function loadReviews() {
+export function loadReviews() {
   const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
   reviews.forEach(function(review) {
     displayReview(review);
@@ -41,7 +35,7 @@ function loadReviews() {
 }
 
 // 리뷰 추가
-function addReview(review) {
+export function addReview(review) {
   const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
   reviews.push(review);
   localStorage.setItem('reviews', JSON.stringify(reviews));
@@ -49,7 +43,11 @@ function addReview(review) {
 }
 
 // 리뷰 표시
-function displayReview(review) {
+export function displayReview(review) {
+  if (!review || !review.name || !review.review) {
+    return;
+  }
+
   const reviewDiv = document.createElement('div');
   reviewDiv.classList.add('review');
   reviewDiv.innerHTML = `
@@ -58,22 +56,12 @@ function displayReview(review) {
     <button class="editBtn">수정</button>
     <button class="deleteBtn">삭제</button>
   `;
-  document.querySelector('.reviewWrap').appendChild(reviewDiv);
-
-  // 리뷰 수정 및 삭제 버튼 이벤트 처리
-  reviewDiv.querySelectorAll('button').forEach((btn, index) => {
-    btn.addEventListener('click', function() {
-      if (btn.textContent === '수정') {
-        editReview(reviewDiv, index);
-      } else if (btn.textContent === '삭제') {
-        deleteReview(reviewDiv, index);
-      }
-    });
-  });
+  document.getElementById('reviewWrap').appendChild(reviewDiv);
 }
 
+
 // 리뷰 수정
-function editReview(reviewDiv, index) {
+export function editReview(reviewDiv, index) {
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   const newText = prompt('리뷰를 수정하세요:', reviews[index].review);
   if (newText !== null) {
@@ -84,7 +72,7 @@ function editReview(reviewDiv, index) {
 }
 
 // 리뷰 삭제
-function deleteReview(reviewDiv, index) {
+export function deleteReview(reviewDiv, index) {
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   reviews.splice(index, 1);
   localStorage.setItem('reviews', JSON.stringify(reviews));

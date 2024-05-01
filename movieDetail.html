@@ -13,7 +13,7 @@
   <!--리뷰-->
   <div class="reviewBox">
     <h1>리뷰</h1>
-    <div class="reviewWrap">
+    <div class="reviewWrap" id="reviewWrap">
       <!--작성자, 리뷰내용, 수정, 삭제-->
       <div class="review">
         <label>작성자</label>
@@ -30,10 +30,10 @@
     </div>
 
     <!--리뷰 작성-->
-    <form class="inputReview">
-      <input type="text" placeholder="닉네임 입력">
-      <textarea rows="3" cols="75" placeholder="리뷰를 작성해주세요."></textarea>
-      <button>기록</button>
+    <form class="inputReview" id="reviewForm">
+      <input type="text" id="authorInput" placeholder="닉네임 입력">
+      <textarea id="reviewInput" rows="3" cols="75" placeholder="리뷰를 작성해주세요."></textarea>
+      <button type="submit">기록</button>
     </form>
   </div>
 </body>
