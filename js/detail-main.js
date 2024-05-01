@@ -1,3 +1,3 @@
-import { fetchMovies } from './detail-api';
+import { fetchMovies } from './detail-api.js';
 
 fetchMovies();
