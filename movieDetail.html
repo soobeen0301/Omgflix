@@ -4,11 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>영화 상세</title>
+  <link rel="stylesheet" href="review.css">
 </head>
 
 <body>
+  <!--리뷰-->
+  <div class="reviewBox">
+    <h1>리뷰</h1>
+    <div class="reviewWrap">
+      <!--작성자, 리뷰내용, 수정, 삭제-->
+      <div class="review">
+        <label>작성자</label>
+        <span>리뷰내용</span>
+        <button>수정</button>
+        <button>삭제</button>
+      </div>
+      <div class="review">
+        <label>작성자</label>
+        <span>리뷰내용</span>
+        <button>수정</button>
+        <button>삭제</button>
+      </div>
+    </div>
 
+    <!--리뷰 작성-->
+    <form class="inputReview">
+      <input type="text" placeholder="닉네임 입력">
+      <textarea rows="3" cols="75" placeholder="리뷰를 작성해주세요."></textarea>
+      <button>기록</button>
+    </form>
+  </div>
 </body>
 
 </html>
