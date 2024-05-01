@@ -4,21 +4,27 @@ export function initializeEventHandlers() {
 
     document.getElementById('reviewForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      const name = document.getElementById('authorInput').value;
-      const review = document.getElementById('reviewInput').value;
-      const newReview = { name: name, review: review };
-      addReview(newReview);
-      document.getElementById('authorInput').value = '';
-      document.getElementById('reviewInput').value = '';
+      const nameInput = document.getElementById('authorInput');
+      const reviewInput = document.getElementById('reviewInput');
+      const name = nameInput.value;
+      const review = reviewInput.value;
+      if (name && review) {
+        addReview({ name, review });
+        nameInput.value = '';
+        reviewInput.value = '';
+      } else {
+        alert('닉네임과 리뷰를 작성해주세요!');
+      }
     });
 
     document.getElementById('reviewWrap').addEventListener('click', function(event) {
-      if (event.target.classList.contains('editBtn')) {
-        const reviewDiv = event.target.parentElement;
+      const target = event.target;
+      if (target.classList.contains('editBtn')) {
+        const reviewDiv = target.parentElement;
         const index = Array.from(reviewDiv.parentElement.children).indexOf(reviewDiv);
         editReview(reviewDiv, index);
-      } else if (event.target.classList.contains('deleteBtn')) {
-        const reviewDiv = event.target.parentElement;
+      } else if (target.classList.contains('deleteBtn')) {
+        const reviewDiv = target.parentElement;
         const index = Array.from(reviewDiv.parentElement.children).indexOf(reviewDiv);
         deleteReview(reviewDiv, index);
       }
@@ -26,28 +32,24 @@ export function initializeEventHandlers() {
   });
 }
 
-// 초기 리뷰 로드
-export function loadReviews() {
+function loadReviews() {
   const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-  reviews.forEach(function(review) {
-    displayReview(review);
-  });
+  reviews.forEach(displayReview);
 }
 
-// 리뷰 추가
-export function addReview(review) {
-  const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+function addReview(review) {
+  let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
   reviews.push(review);
   localStorage.setItem('reviews', JSON.stringify(reviews));
   displayReview(review);
 }
 
-// 리뷰 표시
-export function displayReview(review) {
+function displayReview(review) {
   if (!review || !review.name || !review.review) {
     return;
   }
 
+  const reviewWrap = document.getElementById('reviewWrap');
   const reviewDiv = document.createElement('div');
   reviewDiv.classList.add('review');
   reviewDiv.innerHTML = `
@@ -56,12 +58,10 @@ export function displayReview(review) {
     <button class="editBtn">수정</button>
     <button class="deleteBtn">삭제</button>
   `;
-  document.getElementById('reviewWrap').appendChild(reviewDiv);
+  reviewWrap.appendChild(reviewDiv);
 }
 
-
-// 리뷰 수정
-export function editReview(reviewDiv, index) {
+function editReview(reviewDiv, index) {
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   const newText = prompt('리뷰를 수정하세요:', reviews[index].review);
   if (newText !== null) {
@@ -71,8 +71,7 @@ export function editReview(reviewDiv, index) {
   }
 }
 
-// 리뷰 삭제
-export function deleteReview(reviewDiv, index) {
+function deleteReview(reviewDiv, index) {
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   reviews.splice(index, 1);
   localStorage.setItem('reviews', JSON.stringify(reviews));
