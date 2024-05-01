@@ -13,15 +13,12 @@ function serachBtn() {
     // 전체 영화 제목을 담을 배열
     let movieTitleArr = [];
     for (let i = 0; i < movieCardArr.length; i++) {
-      movieTitleArr[i] =
-        movieCardArr[i].getElementsByTagName('h3')[0].textContent;
+      movieTitleArr[i] = movieCardArr[i].getElementsByTagName('h3')[0].textContent;
       movieCardArr[i].style = 'display:none';
     }
     // 키워드가 들어간 영화 제목을 담을 배열
     const searchInputLower = searchInputValue.toLowerCase();
-    let filterMovieTitle = movieTitleArr.filter((v) =>
-      v.toLowerCase().includes(searchInputLower)
-    );
+    let filterMovieTitle = movieTitleArr.filter(v => v.toLowerCase().includes(searchInputLower));
 
     movieTitleArr.forEach((v, i) => {
       for (let j = 0; j < filterMovieTitle.length; j++) {
@@ -43,7 +40,7 @@ export const searchButton = () => {
 
 // 새로고침 방지
 export function onSubmit() {
-  serachForm.addEventListener('submit', (event) => {
+  serachForm.addEventListener('submit', event => {
     event.preventDefault(); // 브라우저의 기본 동작을 제어
   });
 }

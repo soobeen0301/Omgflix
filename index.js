@@ -3,8 +3,8 @@ const options = {
   headers: {
     accept: 'application/json',
     Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTJhN2E1OWNlMDU5YTBkOWUxMDA5N2Y1NDgwM2U4MiIsInN1YiI6IjY2MjY0MjI3ZTI5NWI0MDE4NzliZDRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jFZYYy_OiC0tGJIuwP-IkQSBRyU4Qo47ujN22aGzXQ8',
-  },
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTJhN2E1OWNlMDU5YTBkOWUxMDA5N2Y1NDgwM2U4MiIsInN1YiI6IjY2MjY0MjI3ZTI5NWI0MDE4NzliZDRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jFZYYy_OiC0tGJIuwP-IkQSBRyU4Qo47ujN22aGzXQ8'
+  }
 };
 
 const movieList = document.querySelector('.movie_list');
@@ -27,7 +27,7 @@ async function fetchMovies() {
 
 function displayMovies(data) {
   let temp_html = '';
-  data.forEach((movie) => {
+  data.forEach(movie => {
     const img_url = `https://image.tmdb.org/t/p/w500${movie['backdrop_path']}`;
     temp_html += `
     <div class="movie_card" onclick="alert('영화 id: ${movie['id']}')">
@@ -54,15 +54,12 @@ function serachBtn() {
     // 전체 영화 제목을 담을 배열
     let movieTitleArr = [];
     for (let i = 0; i < movieCardArr.length; i++) {
-      movieTitleArr[i] =
-        movieCardArr[i].getElementsByTagName('h3')[0].textContent;
+      movieTitleArr[i] = movieCardArr[i].getElementsByTagName('h3')[0].textContent;
       movieCardArr[i].style = 'display:none';
     }
     // 키워드가 들어간 영화 제목을 담을 배열
     const searchInputLower = searchInputValue.toLowerCase();
-    let filterMovieTitle = movieTitleArr.filter((v) =>
-      v.toLowerCase().includes(searchInputLower)
-    );
+    let filterMovieTitle = movieTitleArr.filter(v => v.toLowerCase().includes(searchInputLower));
 
     movieTitleArr.forEach((v, i) => {
       for (let j = 0; j < filterMovieTitle.length; j++) {
