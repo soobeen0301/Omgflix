@@ -102,7 +102,11 @@ form {
   color: white;
 }
 
-.movie_card > img {
+.movie_card > a {
+  color: inherit;
+}
+
+.movie_card > a > img {
   width: 100%;
   border-radius: 10px;
   height: inherit;
