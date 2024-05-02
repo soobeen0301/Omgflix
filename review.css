@@ -28,10 +28,7 @@ header {
 /* 상세부분 */
 
  #visual .inner {
-  display: flex;
-  /* flex-direction: row; */
-  /* align-items: center;
-  justify-content: center; */
+  display: grid;
   padding-top: 200px;
   padding-bottom: 120px;
 }
@@ -43,9 +40,10 @@ header {
 .inner .word .tagline {
   margin-top: 20px;
   margin-bottom: 50px;
-
-  white-space: pre-line;
-  overflow : visible;
+  width : 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  height : auto;
 }
 
 #visual hr {
