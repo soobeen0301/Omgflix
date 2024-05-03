@@ -25,12 +25,11 @@ const handleSubmitReviewForm = event => {
   const review = reviewInput.value.trim();
   const password = passwordInput.value.trim();
 
-  if (name && review) {
+  if (name && review && password) {
     addReview(name, review, password);
     nameInput.value = '';
     reviewInput.value = '';
     passwordInput.value = '';
-    document.getElementById('reviewForm').style.display = 'none'; // 모달창 닫기
   } else {
     alert('닉네임, 리뷰, 패스워드를 모두 입력해주세요!');
   }
@@ -66,8 +65,7 @@ const loadReviews = () => {
 };
 
 // 리뷰 생성
-const addReview = (name, review, password = '') => {
-  // 패스워드는 선택 사항으로
+const addReview = (name, review, password) => {
   const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
   const movieId = getQueryStringValue('id');
   const reviewObj = { id: Date.now(), name, review, password, movieId };
@@ -75,6 +73,7 @@ const addReview = (name, review, password = '') => {
   reviews.push(reviewObj);
   localStorage.setItem('reviews', JSON.stringify(reviews));
   displayReview(reviewObj);
+  document.getElementById('reviewForm').style.display = 'none';
 };
 
 // 리뷰 생성하고 HTML로 표현
@@ -87,10 +86,11 @@ const displayReview = review => {
   reviewDiv.classList.add('review');
   reviewDiv.setAttribute('data-id', review.id);
   reviewDiv.innerHTML = `
-    <label>${review.name}</label>
-    <span>${review.review}</span>
-    <button class="editBtn">수정</button>
-    <button class="deleteBtn">삭제</button>`;
+  <label>${review.name}</label>
+  <span>${review.review}</span>
+  <button class="editBtn">수정</button>
+  <button class="deleteBtn">삭제</button>
+  `;
   reviewWrap.appendChild(reviewDiv);
 };
 
@@ -101,29 +101,26 @@ const editReview = reviewDiv => {
   const reviewIndex = reviews.findIndex(review => review.id === reviewId);
   const movieId = getQueryStringValue('id');
 
+  // 리뷰 ID 또는 영화 ID가 유효하지 않은 경우
   if (reviewIndex === -1 || reviews[reviewIndex].movieId !== movieId) {
     console.error('유효하지 않은 리뷰 ID이거나 영화 ID가 일치하지 않습니다.');
     return;
   }
-
-  // 패스워드 입력 받기 (리뷰에 패스워드가 설정된 경우에만)
-  if (reviews[reviewIndex].password) {
-    const newPassword = prompt('패스워드를 입력하세요:');
-    // 패스워드 인증
-    if (!verifyPassword(reviewIndex, newPassword)) {
-      alert('올바른 패스워드를 입력하세요!');
-      return;
+  // 패스워드 입력 받기
+  const newPassword = prompt('패스워드를 입력하세요:');
+  // 패스워드 인증
+  if (verifyPassword(reviewIndex, newPassword)) {
+    // 패스워드 인증 후 리뷰 수정
+    const newText = prompt('리뷰를 수정하세요:', reviews[reviewIndex].review).trim();
+    if (newText) {
+      reviews[reviewIndex].review = newText;
+      localStorage.setItem('reviews', JSON.stringify(reviews));
+      reviewDiv.querySelector('span').textContent = newText;
+    } else {
+      alert('리뷰 내용을 입력하세요!');
     }
-  }
-
-  // 패스워드 인증 후 리뷰 수정
-  const newText = prompt('리뷰를 수정하세요:', reviews[reviewIndex].review).trim();
-  if (newText) {
-    reviews[reviewIndex].review = newText;
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-    reviewDiv.querySelector('span').textContent = newText;
   } else {
-    alert('리뷰 내용을 입력하세요!');
+    alert('올바른 패스워드를 입력하세요!');
   }
 };
 
@@ -132,19 +129,15 @@ const deleteReview = reviewDiv => {
   const reviewId = parseInt(reviewDiv.getAttribute('data-id'), 10);
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   const reviewIndex = reviews.findIndex(review => review.id === reviewId);
-
   if (reviewIndex !== -1) {
-    // 리뷰에 패스워드가 설정된 경우에만 패스워드 입력 받기
-    if (reviews[reviewIndex].password) {
-      const password = prompt('패스워드를 입력하세요:');
-      if (!password || !verifyPassword(reviewIndex, password)) {
-        alert('올바른 패스워드를 입력하세요!');
-        return;
-      }
+    const password = prompt('패스워드를 입력하세요:');
+    if (password && verifyPassword(reviewIndex, password)) {
+      reviews.splice(reviewIndex, 1);
+      localStorage.setItem('reviews', JSON.stringify(reviews));
+      reviewDiv.remove();
+    } else {
+      alert('올바른 패스워드를 입력하세요!');
     }
-    reviews.splice(reviewIndex, 1);
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-    reviewDiv.remove();
   } else {
     console.error('삭제할 리뷰가 없습니다.');
   }
