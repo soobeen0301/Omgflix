@@ -1,3 +1,4 @@
+// 이벤트 핸들러 초기화
 export function initializeEventHandlers() {
   document.addEventListener('DOMContentLoaded', function() {
     loadReviews();
@@ -24,7 +25,7 @@ export function initializeEventHandlers() {
         }
       });
     }
-
+// 클릭 이벤트
     const reviewWrap = document.getElementById('reviewWrap');
     if (reviewWrap) {
       reviewWrap.addEventListener('click', function(event) {
