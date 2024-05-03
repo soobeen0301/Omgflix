@@ -1,5 +1,5 @@
 // 이벤트 핸들러 초기화
-export function initializeEventHandlers() {
+export const initializeEventHandlers = () =>{
   document.addEventListener('DOMContentLoaded', function() {
     loadReviews();
 
@@ -45,7 +45,7 @@ export function initializeEventHandlers() {
 }
 
 // 페이지 로드
-function loadReviews() {
+const loadReviews = () => {
   const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
   reviews.forEach((review, index) => {
     displayReview(review, index);
@@ -53,7 +53,7 @@ function loadReviews() {
 }
 
 // 리뷰 생성
-function addReview(name, review, password) {
+const addReview = (name, review, password) => {
   const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
   const newIndex = reviews.length;
   const reviewObj = { name, review, password };
@@ -63,7 +63,7 @@ function addReview(name, review, password) {
 }
 
 // 리뷰 생성하고 HTML로 표현
-function displayReview(review, index) {
+const displayReview = (review, index) => {
   if (!review || !review.name || !review.review) {
     return;
   }
@@ -80,7 +80,7 @@ function displayReview(review, index) {
 }
 
 // 리뷰 수정
-function editReview(reviewDiv, index) {
+const editReview = (reviewDiv, index) => {
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   if (!reviews || index < 0 || index >= reviews.length) {
     console.error('유효하지 않은 인덱스입니다.');
@@ -98,7 +98,7 @@ function editReview(reviewDiv, index) {
 }
 
 // 리뷰 삭제
-function deleteReview(reviewDiv, index) {
+const deleteReview = (reviewDiv, index) => {
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   if (reviews && index >= 0 && index < reviews.length) {
     const password = prompt('패스워드를 입력하세요:');
@@ -115,7 +115,7 @@ function deleteReview(reviewDiv, index) {
 }
 
 // 패스워드 확인
-function verifyPassword(index, password) {
+const verifyPassword = (index, password) => {
   const reviews = JSON.parse(localStorage.getItem('reviews'));
   if (reviews && index >= 0 && index < reviews.length) {
     return reviews[index].password === password;
