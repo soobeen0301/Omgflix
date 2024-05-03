@@ -16,8 +16,8 @@
   <!--상세페이지-->
   <header>
     <div class="inner">
-      <a class="home" onClick="location.href='./index.html'">
-        <h1>OMGFLEX</h1>
+      <a class="home" href="https://kr-egoist.github.io/Omgflix/" style="text-decoration-line: none;">
+        <img src="./resource/title.jpg" alt="">
       </a>
   </header>
 
@@ -26,6 +26,7 @@
       <div class="word">
         <div class="img">
         </div>
+
         <div class="info">
           <p>개봉일 <span class="date"></span> |
             장르 <span class="genre"></span> |
@@ -33,9 +34,20 @@
             상영시간 <span class="time"></span> 분 |
             ⭐ <span class="vote"></span></p>
         </div>
+
         <h2 class="title"></h2>
-        <p class="tagline"></p>
+        <p class="overview"></p>
+        <div class="voteDiv">
+          <p>⭐ <span class="vote"></span></p>
+        </div>
+        <div class="info">
+          <p>개봉일 | <span class="date"></span></p>
+          <p>장르 | <span class="genre"></span></p>
+          <p>언어 | <span class="country"></span></p>
+          <p>상영시간 | <span class="time"></span> 분</p>
+        </div>
       </div>
+    </div>
     </div>
     <hr>
   </section>
@@ -59,14 +71,13 @@
     </div>
 
     <!--리뷰 작성-->
-    <form class="inputReview" id="reviewForm">
+    <!-- <form class="inputReview" id="reviewForm2222">
       <input type="text" id="authorInput" placeholder="닉네임 입력">
       <input id="passwordInput" type="password" required placeholder="패스워드를 작성해주세요">
       <textarea id="reviewInput" rows="3" cols="75" placeholder="리뷰를 작성해주세요."></textarea>
       <button type="submit">기록</button>
-      <button id="popOpen">등록</button>
-
-    </form>
+    </form> -->
+    <button id="popOpen">등록</button>
   </div>
 
   <!-- 로딩 화면 -->
@@ -78,25 +89,25 @@
   </footer>
 
   <!-- 모달창 -->
-  <div class="popWrap" style="display: none;">
+  <form class="popWrap" style="display: none;" id="reviewForm">
     <div class="popCard">
       <div class="inputPersonal">
         <div class="personal">
-          닉네임 : <input type="text" placeholder="닉네임을 입력해주세요">
+          닉네임 : <input type="text" id="authorInput" placeholder="닉네임을 입력해주세요">
         </div>
         <div class="personal">
-          비밀번호 : <input type="text" placeholder="비밀번호를 입력해주세요">
+          비밀번호 : <input id="passwordInput" type="password" required placeholder="비밀번호를 입력해주세요">
         </div>
       </div>
       <div class="inputReview">
-        리뷰 : <textarea rows="5" placeholder="리뷰를 입력해주세요"></textarea>
+        리뷰 : <textarea id="reviewInput" rows="5" placeholder="리뷰를 입력해주세요"></textarea>
       </div>
       <div class="popBtn">
-        <button>등록</button>
+        <button type="submit">등록</button>
         <button id="popClose">취소</button>
       </div>
     </div>
-  </div>
+  </form>
 </body>
 
 </html>
