@@ -1,6 +1,6 @@
 const movieList = document.querySelector('.movie_list');
 
-function displayMovies(data) {
+export function displayMovies(data) {
   let temp_html = '';
   data.forEach(movie => {
     const img_url = `https://image.tmdb.org/t/p/w500${movie['backdrop_path']}`;
@@ -18,5 +18,3 @@ function displayMovies(data) {
   });
   movieList.innerHTML = temp_html;
 }
-
-export { displayMovies };

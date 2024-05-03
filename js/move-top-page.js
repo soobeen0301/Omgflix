@@ -1,6 +1,6 @@
 const topButton = document.getElementById('topButton');
 
-const moveTop = () => {
+export const moveTop = () => {
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
       topButton.style.display = 'block';
@@ -12,5 +12,3 @@ const moveTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 };
-
-export { moveTop };

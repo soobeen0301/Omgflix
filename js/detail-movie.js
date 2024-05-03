@@ -8,7 +8,8 @@ const detailTime = document.querySelector('.time');
 const detaivote = document.querySelector('.vote');
 const detaiimg = document.querySelector('.img');
 
-function displayMovies(data) {
+export function displayMovies(data) {
+  console.log(data);
   const backdrop_path = `https://image.tmdb.org/t/p/w500${data.backdrop_path}`;
   const poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   const title = data.title;
@@ -33,5 +34,3 @@ function displayMovies(data) {
   detailTime.innerText = runtime;
   detaivote.innerText = vote_average;
 }
-
-export { displayMovies };

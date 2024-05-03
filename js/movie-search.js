@@ -32,17 +32,15 @@ function serachBtn() {
 
 // 버튼 클릭시 serachBtn 함수 실행
 // form 태그로 HTML 을 작성해서 엔터키도 같이 작동함.
-const searchButton = () => {
+export const searchButton = () => {
   searchBtn.addEventListener('click', () => {
     serachBtn();
   });
 };
 
 // 새로고침 방지
-function onSubmit() {
+export function onSubmit() {
   serachForm.addEventListener('submit', event => {
     event.preventDefault(); // 브라우저의 기본 동작을 제어
   });
 }
-
-export { searchButton, onSubmit };
