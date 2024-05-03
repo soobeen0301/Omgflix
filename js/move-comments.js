@@ -20,7 +20,6 @@ export const initializeEventHandlers = () =>{
           nameInput.value = '';
           reviewInput.value = '';
           passwordInput.value = '';
-          document.getElementById('reviewForm').style.display = 'none'; // 모달창 닫기
         } else {
           alert('닉네임, 리뷰, 패스워드를 모두 입력해주세요!');
         }

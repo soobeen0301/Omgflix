@@ -144,7 +144,7 @@ header > div > a {
 */
 
 /* 리뷰 작성 */
-/* .inputReview {
+.inputReview {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -175,7 +175,7 @@ header > div > a {
 input:focus::placeholder,
 textarea:focus::placeholder {
   color: transparent;
-} */
+}
 
 /* 로딩 화면 */
 .mask {
@@ -210,84 +210,4 @@ textarea:focus::placeholder {
 
 #topButton > img {
   width: 70px;
-}
-
-/* 페이지 위에 모달 띄우기 */
-.popWrap {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1050;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 모달창 css */
-.popCard {
-  background-color: white;
-  color: black;
-  border: 2px solid black;
-  position: relative;
-  width: 800px;
-  height: 400px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.inputPersonal {
-  display: flex;
-  width: 90%;
-  justify-content: space-between;
-  /* gap: 20px; */
-}
-
-.personal {
-  display: flex;
-  align-items: center;
-}
-
-.inputPersonal input {
-  width: 100px;
-  height: 40px;
-  text-align: center;
-  margin-left: 20px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid black;
-  width: 200px;
-}
-
-.inputReview {
-  margin-top: 30px;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-
-.inputReview>textarea {
-  resize: vertical;
-  min-height: 50px;
-  padding: 10px;
-  box-sizing: border-box;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.popBtn {
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-}
-
-input:focus::placeholder,
-textarea:focus::placeholder {
-  color: transparent;
 }
