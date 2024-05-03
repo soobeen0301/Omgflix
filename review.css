@@ -158,10 +158,16 @@ header > div > a {
 
 /* 로딩 이미지 */
 .loadingImg {
-  position: relative;
+  /* position: relative;
   display: block;
   top: 50vh;
-  transform: translateY(-50%);
+  transform: translateY(-50%); */
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1100;
 }
 
 #topButton {
@@ -188,7 +194,6 @@ header > div > a {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1050;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -212,7 +217,6 @@ header > div > a {
   display: flex;
   width: 90%;
   justify-content: space-between;
-  /* gap: 20px; */
 }
 
 .personal {
