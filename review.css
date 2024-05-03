@@ -1,12 +1,34 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
 }
 
 body {
   background-color: black;
   color: white;
+}
+
+/* 로딩 화면 */
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  z-index: 9999;
+  opacity: 0.5;
+  transition: 0.5s ease;
+}
+
+/* 로딩 이미지 */
+.loadingImg {
+  position: relative;
+  display: block;
+  top: 50vh;
+  left: 46%;
+  transform: translateY(-50%);
 }
 
 header {
@@ -140,34 +162,6 @@ header > div > a {
 .review > button {
   width: 70px;
   height: 40px;
-}
-*/
-
-/* 로딩 화면 */
-.mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
-  opacity: 0.5;
-  transition: 0.5s ease;
-}
-
-/* 로딩 이미지 */
-.loadingImg {
-  /* position: relative;
-  display: block;
-  top: 50vh;
-  transform: translateY(-50%); */
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1100;
 }
 
 #topButton {
