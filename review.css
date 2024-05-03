@@ -33,23 +33,34 @@ header {
   padding-bottom: 120px;
 }
 
+.inner .word .vote {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
 .inner .word .title {
   font-size: 50px;
 }
 
 .inner .word .tagline {
+  font-size: 30px;
+  font-weight: lighter;
+  word-break: break-all;
+  overflow-wrap: break-word;
   margin-top: 20px;
   margin-bottom: 50px;
-  width : 100%;
-  white-space: normal;
-  word-wrap: break-word;
-  height : auto;
+}
+
+.inner .word .info {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #visual hr {
   width: 1300px;
   margin: 0 auto;
-  border: 1px solid #3e3e3eb5;
+  border: 2px solid #3e3e3eb5;
 }
 
 /*리뷰영역*/
