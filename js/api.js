@@ -11,7 +11,7 @@ const options = {
   }
 };
 
-export async function fetchMovies(pageNum) {
+async function fetchMovies(pageNum) {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${pageNum}`,
@@ -26,3 +26,5 @@ export async function fetchMovies(pageNum) {
     console.error('Failed to fetch movies:', error);
   }
 }
+
+export { fetchMovies };
