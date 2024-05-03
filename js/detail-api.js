@@ -3,9 +3,9 @@ import { displayMovies } from './detail-movie.js';
 // URL 을 통으로 가져옴
 const url = new URL(document.location.href);
 // search 부분(?id=id값) 만 생성자에 넣기
-const urlSearchParamsObject = new URLSearchParams(url.search);
+const Params = new URLSearchParams(url.search);
 // get 으로 id 값을 반환
-const id = urlSearchParamsObject.get('id');
+const id = Params.get('id');
 
 // TMDB API 정보
 const options = {

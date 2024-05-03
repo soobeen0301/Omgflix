@@ -1,5 +1,9 @@
 import { fetchMovies } from './detail-api.js';
-import {initializeEventHandlers} from './comments.js';
+import { loading } from './detail-loding.js';
+import { moveTop } from './move-top-detail.js';
 
 fetchMovies();
-initializeEventHandlers();
+
+loading();
+
+moveTop();
