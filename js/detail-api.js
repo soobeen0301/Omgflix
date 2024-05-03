@@ -17,7 +17,7 @@ const options = {
   }
 };
 
-export async function fetchMovies() {
+async function fetchMovies() {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
@@ -29,3 +29,5 @@ export async function fetchMovies() {
     console.error('Failed to fetch movies:', error);
   }
 }
+
+export { fetchMovies };
