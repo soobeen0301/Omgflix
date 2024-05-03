@@ -6,7 +6,7 @@ const numbers = document.querySelector('#numbers');
 const numberBtn = numbers.querySelectorAll('a');
 
 // 정적 pagenation 구현
-const pagenation = () => {
+export const pagenation = () => {
   numberBtn.forEach(item => {
     item.addEventListener('click', async event => {
       event.preventDefault();
@@ -22,5 +22,3 @@ const pagenation = () => {
     });
   });
 };
-
-export { pagenation };
