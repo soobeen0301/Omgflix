@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>영화 상세</title>
   <link rel="stylesheet" href="review.css">
-  <link rel="icon" type="images/png" href="https://png.pngtree.com/element_our/20190523/ourmid/pngtree-movie-element-movie-icon-image_1090327.jpg">
+  <link rel="icon" type="images/png"
+    href="https://png.pngtree.com/element_our/20190523/ourmid/pngtree-movie-element-movie-icon-image_1090327.jpg">
   <script src="./js/detail-main.js" type="module"></script>
 
 </head>
@@ -15,8 +16,8 @@
   <!--상세페이지-->
   <header>
     <div class="inner">
-      <a class="home" onClick="location.href='./index.html'">
-        <h1>OMGFLEX</h1>
+      <a class="home" href="https://kr-egoist.github.io/Omgflix/" style="text-decoration-line: none;">
+        <img src="./resource/title.jpg" alt="">
       </a>
   </header>
 
@@ -25,19 +26,22 @@
       <div class="word">
         <div class="img">
         </div>
-        <div class="info">
-          <p>개봉일  <span class="date"></span> |
-           장르  <span class="genre"></span> |
-           언어  <span class="country"></span> |
-           상영시간  <span class="time"></span> 분 |
-           ⭐ <span class="vote"></span></p>
-        </div>
         <h2 class="title"></h2>
-        <p class="tagline"></p>
+        <p class="overview"></p>
+        <div class="voteDiv">
+          <p>⭐ <span class="vote"></span></p>
+        </div>
+        <div class="info">
+          <p>개봉일 | <span class="date"></span></p>
+          <p>장르 | <span class="genre"></span></p>
+          <p>언어 | <span class="country"></span></p>
+          <p>상영시간 | <span class="time"></span> 분</p>
+        </div>
       </div>
     </div>
+    </div>
     <hr>
-    </section>
+  </section>
   <!--리뷰-->
   <div class="reviewBox">
     <h1>리뷰</h1>
