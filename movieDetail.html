@@ -60,14 +60,7 @@
         <button>삭제</button>
       </div>
     </div>
-
-    <!--리뷰 작성-->
-    <form class="inputReview" id="reviewForm">
-      <input type="text" id="authorInput" placeholder="닉네임 입력">
-      <input id="passwordInput" type="password" placeholder="패스워드를 작성해주세요">
-      <textarea id="reviewInput" rows="3" cols="75" placeholder="리뷰를 작성해주세요."></textarea>
-      <button type="submit">기록</button>
-    </form>
+    <button id="popOpen">등록</button>
   </div>
 
   <!-- 로딩 화면 -->
@@ -77,6 +70,27 @@
   <footer>
     <button id="topButton"><img src="./resource/topButton.jpg"></button>
   </footer>
+
+    <!-- 모달창 -->
+    <form class="popWrap" style="display: none;" id="reviewForm">
+      <div class="popCard">
+        <div class="inputPersonal">
+          <div class="personal">
+            닉네임 : <input type="text" id="authorInput" placeholder="닉네임을 입력해주세요">
+          </div>
+          <div class="personal">
+            비밀번호 : <input id="passwordInput" type="password" required placeholder="비밀번호를 입력해주세요">
+          </div>
+        </div>
+        <div class="inputReview">
+          리뷰<textarea id="reviewInput" rows="5" placeholder="리뷰를 입력해주세요"></textarea>
+        </div>
+        <div class="popBtn">
+          <button type="submit">등록</button>
+          <button id="popClose" type="button">취소</button>
+        </div>
+      </div>
+    </form>
 </body>
 
 </html>
