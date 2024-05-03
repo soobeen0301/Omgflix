@@ -1,26 +1,26 @@
 // 이벤트 핸들러 초기화
 export const initializeEventHandlers = () =>{
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', () => {
     loadReviews();
 
     const reviewForm = document.getElementById('reviewForm');
     if (reviewForm) {
       reviewForm.addEventListener('submit', function(event) {
         event.preventDefault();
+        // input내용을 받아오기
         const nameInput = document.getElementById('authorInput');
         const reviewInput = document.getElementById('reviewInput');
         const passwordInput = document.getElementById('passwordInput');
         const name = nameInput.value.trim();
         const review = reviewInput.value.trim();
         const password = passwordInput.value.trim();
-        // input내용을 받아오기
+         // addReview 리뷰 생성 전달 
         if (name && review && password) {
           addReview(name, review, password);
           nameInput.value = '';
           reviewInput.value = '';
           passwordInput.value = '';
-        } // addReview 리뷰 생성 전달 
-        else {
+        } else {
           alert('닉네임, 리뷰, 패스워드를 모두 입력해주세요!');
         }
       });
