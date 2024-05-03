@@ -33,14 +33,20 @@ header {
   padding-bottom: 120px;
 }
 
-.inner .word .vote {
-  font-size: 30px;
+.inner .word .img {
+  width: 300px;
+  float: left;
+  margin-right: 250px;
+}
+
+.inner .word .info {
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 30px;
 }
 
 .inner .word .title {
   font-size: 50px;
+  margin-top: 100px;
 }
 
 .inner .word .tagline {
@@ -48,13 +54,7 @@ header {
   font-weight: lighter;
   word-break: break-all;
   overflow-wrap: break-word;
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-.inner .word .info {
-  font-size: 20px;
-  font-weight: bold;
+  margin-top: 80px;
 }
 
 #visual hr {
