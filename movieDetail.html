@@ -42,6 +42,16 @@
     </div>
     <hr>
   </section>
+  <!-- 유튜브 -->
+  <div id="videos" class="tabcontent videos">
+    <div class="inner">
+      <h3 class="videos__title">Movie Videos</h3>
+      <ul class="videoList"></ul>
+    </div>
+    <div id="youtubePlayer__container" class="hide">
+      <div id="youtubePlayer"></div>
+    </div>
+  </div>
   <!--리뷰-->
   <div class="reviewBox">
     <h1>리뷰</h1>
@@ -71,26 +81,26 @@
     <button id="topButton"><img src="./resource/topButton.jpg"></button>
   </footer>
 
-    <!-- 모달창 -->
-    <form class="popWrap" style="display: none;" id="reviewForm">
-      <div class="popCard">
-        <div class="inputPersonal">
-          <div class="personal">
-            닉네임 : <input type="text" id="authorInput" placeholder="닉네임을 입력해주세요">
-          </div>
-          <div class="personal">
-            비밀번호 : <input id="passwordInput" type="password" required placeholder="비밀번호를 입력해주세요">
-          </div>
+  <!-- 모달창 -->
+  <form class="popWrap" style="display: none;" id="reviewForm">
+    <div class="popCard">
+      <div class="inputPersonal">
+        <div class="personal">
+          닉네임 : <input type="text" id="authorInput" placeholder="닉네임을 입력해주세요">
         </div>
-        <div class="inputReview">
-          리뷰<textarea id="reviewInput" rows="5" placeholder="리뷰를 입력해주세요"></textarea>
-        </div>
-        <div class="popBtn">
-          <button type="submit">등록</button>
-          <button id="popClose" type="button">취소</button>
+        <div class="personal">
+          비밀번호 : <input id="passwordInput" type="password" required placeholder="비밀번호를 입력해주세요">
         </div>
       </div>
-    </form>
+      <div class="inputReview">
+        리뷰<textarea id="reviewInput" rows="5" placeholder="리뷰를 입력해주세요"></textarea>
+      </div>
+      <div class="popBtn">
+        <button type="submit">등록</button>
+        <button id="popClose" type="button">취소</button>
+      </div>
+    </div>
+  </form>
 </body>
 
 </html>
