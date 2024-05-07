@@ -23,7 +23,9 @@ const handleSubmitReviewForm = event => {
   const passwordInput = document.getElementById('passwordInput');
   const name = nameInput.value.trim();
   const review = reviewInput.value.trim();
-  const password = passwordInput.value.trim();
+  const password = passwordInput.value.trim()
+
+  
 
   if (name && review && password) {
     addReview(name, review, password);
