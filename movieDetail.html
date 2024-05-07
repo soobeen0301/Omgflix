@@ -56,23 +56,13 @@
   </div>
   <!--리뷰-->
   <div class="reviewBox">
-    <h1>리뷰</h1>
+    <h1>Reviews</h1>
     <div class="reviewWrap" id="reviewWrap">
       <!--작성자, 리뷰내용, 수정, 삭제-->
-      <div class="review">
-        <label>작성자</label>
-        <span>리뷰내용</span>
-        <button>수정</button>
-        <button>삭제</button>
-      </div>
-      <div class="review">
-        <label>작성자</label>
-        <span>리뷰내용</span>
-        <button>수정</button>
-        <button>삭제</button>
-      </div>
     </div>
+      <div class="review">
     <button id="popOpen">등록</button>
+    </div>
   </div>
 
   <footer>
@@ -82,16 +72,17 @@
   <!-- 모달창 -->
   <form class="popWrap" style="display: none;" id="reviewForm">
     <div class="popCard">
+      <h1> review</h1>
       <div class="inputPersonal">
-        <div class="personal">
-          닉네임 : <input type="text" id="authorInput" placeholder="닉네임을 입력해주세요">
+       <div class="personal">
+          name <input type="text" id="authorInput" placeholder="name here">
         </div>
         <div class="personal">
-          비밀번호 : <input id="passwordInput" type="password" required placeholder="비밀번호를 입력해주세요">
+          password <input id="passwordInput" type="password" required placeholder="password here">
         </div>
       </div>
       <div class="inputReview">
-        리뷰<textarea id="reviewInput" rows="5" placeholder="리뷰를 입력해주세요"></textarea>
+        review<textarea id="reviewInput" rows="10" placeholder="review here"></textarea>
       </div>
       <div class="popBtn">
         <button type="submit">등록</button>
