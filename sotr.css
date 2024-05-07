@@ -1,0 +1,53 @@
+#sotr_btn {
+  text-align: center;
+}
+
+#sotr_btn > active {
+  top: 9px;
+}
+
+#popularityButton {
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+  padding: 15px 30px;
+  color: white;
+  margin: 20px 10px 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: top 0.01s linear;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  background-color: #699dd1;
+}
+
+#popularityButton:hover {
+  background-color: #699dd1;
+}
+
+#latestButton {
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+  padding: 15px 30px;
+  color: white;
+  margin: 20px 10px 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: top 0.01s linear;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  background-color: #699dd1;
+}
+
+#ratingButton {
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+  padding: 15px 30px;
+  color: white;
+  margin: 20px 10px 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: top 0.01s linear;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  background-color: #699dd1;
+}
