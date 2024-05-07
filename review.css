@@ -123,6 +123,8 @@ header > div > a {
   width: 1000px;
   gap: 20px;
   margin: 40px auto 20px auto;
+  
+  margin-bottom: 100px;
 }
 
 .reviewWrap {
@@ -131,7 +133,24 @@ header > div > a {
   width: 90%;
 }
 
+#popOpen {
+  visibility: hidden;
+  width: 70px;
+  height: 40px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  margin-left: auto;
+}
+
+.reviewBox:hover #popOpen {
+  visibility: visible;
+}
+
 /* 리뷰카드 */
+.reviewBox > h1 {
+  margin: 20px;
+}
+
 .review {
   margin: 30px;
   display: flex;
