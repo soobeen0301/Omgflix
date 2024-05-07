@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Omgflix</title>
-    <script src="./js/main.js" type="module"></script>
-    <script src="./js/sort.js" type="module"></script>
-    <link rel="stylesheet" href="sotr.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="icon"
-      type="images/png"
-      href="https://png.pngtree.com/element_our/20190523/ourmid/pngtree-movie-element-movie-icon-image_1090327.jpg"
-    />
-  </head>
 
-  <body>
-    <header class="title_style">
-      <div>
-        <a href="https://kr-egoist.github.io/Omgflix/" style="text-decoration-line: none">
-          <img src="./resource/title.jpg" alt="" />
-        </a>
-      </div>
-    </header>
-    <!-- onsubmit="return false;" 새로고침 방지 -->
-    <form id="serach_form" class="serach">
-      <label>영화 검색 : </label>
-      <input type="text" id="serach_input" placeholder="영화 제목을 입력하세요." />
-      <!-- <button type="submit" onclick=serachBtn()>검색</button> import export 사용안하고 index.js 사용시 -->
-      <button type="submit" id="search_btn">검색</button>
-    </form>
-    <!-- 기능별 버튼 -->
-    <div id="sotr_btn">
-      <button id="popularityButton">인기</button>
-      <button id="latestButton">최신</button>
-      <button id="ratingButton">평점</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omgflix</title>
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/sort.js" type="module"></script>
+  <link rel="stylesheet" href="./CSS/sotr.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="icon" type="images/png"
+    href="https://png.pngtree.com/element_our/20190523/ourmid/pngtree-movie-element-movie-icon-image_1090327.jpg" />
+</head>
+
+<body>
+  <header class="title_style">
+    <div>
+      <a href="https://kr-egoist.github.io/Omgflix/" style="text-decoration-line: none">
+        <img src="./resource/title.jpg" alt="" />
+      </a>
     </div>
-    <main id="movieLists" class="movie_list"></main>
-    <footer>
-      <div class="pagenation">
-        <ol id="numbers">
-          <li value="1"><a href="">1</a></li>
-          <li value="2"><a href="">2</a></li>
-          <li value="3"><a href="">3</a></li>
-          <li value="4"><a href="">4</a></li>
-          <li value="5"><a href="">5</a></li>
-          <li value="6"><a href="">6</a></li>
-          <li value="7"><a href="">7</a></li>
-          <li value="8"><a href="">8</a></li>
-          <li value="9"><a href="">9</a></li>
-          <li value="10"><a href="">10</a></li>
-        </ol>
-      </div>
-      <button id="topButton"><img src="./resource/topButton.jpg" alt="" /></button>
-    </footer>
-  </body>
+  </header>
+  <!-- onsubmit="return false;" 새로고침 방지 -->
+  <form id="serach_form" class="serach">
+    <label>영화 검색 : </label>
+    <input type="text" id="serach_input" placeholder="영화 제목을 입력하세요." />
+    <!-- <button type="submit" onclick=serachBtn()>검색</button> import export 사용안하고 index.js 사용시 -->
+    <button type="submit" id="search_btn">검색</button>
+  </form>
+  <!-- 기능별 버튼 -->
+  <div id="sotr_btn">
+    <button id="popularityButton">인기</button>
+    <button id="latestButton">최신</button>
+    <button id="ratingButton">평점</button>
+  </div>
+  <main id="movieLists" class="movie_list"></main>
+  <footer>
+    <div class="pagenation">
+      <ol id="numbers">
+        <li value="1"><a href="">1</a></li>
+        <li value="2"><a href="">2</a></li>
+        <li value="3"><a href="">3</a></li>
+        <li value="4"><a href="">4</a></li>
+        <li value="5"><a href="">5</a></li>
+        <li value="6"><a href="">6</a></li>
+        <li value="7"><a href="">7</a></li>
+        <li value="8"><a href="">8</a></li>
+        <li value="9"><a href="">9</a></li>
+        <li value="10"><a href="">10</a></li>
+      </ol>
+    </div>
+    <button id="topButton"><img src="./resource/topButton.jpg" alt="" /></button>
+  </footer>
+</body>
+
 </html>

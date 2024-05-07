@@ -116,7 +116,10 @@ header > div > a {
 /*리뷰영역*/
 #reviewForm {
   position: fixed;
-  top:0; left : 0; bottom : 0; right : 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background: rgba(0, 0, 0, 0.8);
 }
 
@@ -131,7 +134,7 @@ header > div > a {
 }
 
 .reviewWrap {
-  width : 100%
+  width: 100%;
 }
 
 #popOpen {
@@ -240,10 +243,10 @@ header > div > a {
 }
 
 .popCard h1 {
- position: absolute;
- top : 50px;
- text-align: center;
- font-size: 50px;
+  position: absolute;
+  top: 50px;
+  text-align: center;
+  font-size: 50px;
 }
 
 .inputPersonal {
@@ -285,14 +288,14 @@ header > div > a {
   margin: 20px 0 100px 0;
   box-sizing: border-box;
   width: 100%;
-  gap : 20px;
+  gap: 20px;
   font-size: 20px;
 }
 
 .popBtn {
   display: flex;
   justify-content: space-between;
-  gap : 20px;
+  gap: 20px;
 }
 
 .popBtn button {
